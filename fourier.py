@@ -101,14 +101,19 @@ webbrowser.get().open(plot_file.as_uri())
 fig_subplots = sp.make_subplots(rows=1, cols=2)
 
 # Add the line plot to the first column
-fig_subplots.add_trace(go.Scatter(x=x, y=y, name='truncated sine sumwave'), row=1, col=1)
+fig_subplots.add_trace(go.Scatter(
+    x=x, y=y, name='truncated sine sumwave', legendgroup="group1"), row=1, col=1)
 fig_subplots.add_trace(go.Scatter(x=x, y=y1+0.05, name='square wave'), row=1, col=1)
-fig_subplots.add_trace(go.Scatter(x=x, y=reconstructed_y+0.10, name='reconstructed truncated sin sum wave'), row=1, col=1)
-fig_subplots.add_trace(go.Scatter(x=x, y=reconstructed_y1+0.15, name='reconstructed square sumwave'), row=1, col=1)
+fig_subplots.add_trace(go.Scatter(x=x, y=reconstructed_y+0.10,
+                       name='reconstructed truncated sin sum wave', legendgroup="group1"), row=1, col=1)
+fig_subplots.add_trace(go.Scatter(x=x, y=reconstructed_y1+0.15,
+                       name='reconstructed square sumwave', legendgroup="group1"), row=1, col=1)
 
 # Add the bar chart to the second column
-fig_subplots.add_trace(go.Bar(x=np.arange(len(amplitudes)), y=amplitudes, name='Amplitudes'), row=1, col=2)
-fig_subplots.add_trace(go.Bar(x=np.arange(len(amplitudes1)+offset), y=amplitudes1, name='Amplitudes1'), row=1, col=2)
+fig_subplots.add_trace(go.Bar(x=np.arange(len(amplitudes)), y=amplitudes,
+                       name='Amplitudes', legendgroup="group2"), row=1, col=2)
+fig_subplots.add_trace(go.Bar(x=np.arange(len(amplitudes1)+offset),
+                       y=amplitudes1, name='Amplitudes1', legendgroup="group2"), row=1, col=2)
 
 fig_subplots.update_xaxes(title_text="Time", row=1, col=1)
 fig_subplots.update_yaxes(title_text="Amplitude", row=1, col=1)

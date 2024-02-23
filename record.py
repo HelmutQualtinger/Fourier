@@ -21,7 +21,7 @@ def record_and_save_audio(filename, duration=10, sr=44100):
     )
 
     # Save the audio as an MP3 file with 128 kb/s bitrate
-    audio_data.export(filename, format="mp3", bitrate="128k")
+    audio_data.export(filename, format="mp3", bitrate="64k")
 
     print(f"Audio saved as {filename}")
 
